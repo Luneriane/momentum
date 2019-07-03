@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css?family=Marcellus|Open+Sans&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+main {
+  min-height: 100vh;
+  text-align: center;
+  color: white;
+  text-shadow: 0 0 0.5rem black;
+  font-family: 'Open Sans', sans-serif;
+  background-size: cover;
+}
+
+main article {
+  position: absolute;
+  right: 0;
+  background-color: rgba(128, 128, 128, 0.25);
+  padding: 1em;
+  border-radius: 5% 0 5% 25%;
+}
+
+main h1 {
+  padding-top: 25vh;
+  font-size: 20vh;
+  font-family: 'Marcellus', serif;
+}
+
+main h2 {
+  line-height: 2em;
+}
+
+main h2 #nom {
+  border: none;
+  background: none;
+  height: 100%;
+  width: 5em;
+  border-radius: 0.1em;
+  font-size: 1em;
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+  text-shadow: 0 0 0.5rem black;
+}
+
+main h2 #nom:focus {
+  outline: none;
+  border-bottom: solid 0.1em rgba(255, 255, 255, 0.5);
+}
+
+main #inputToDo {
+  border-radius: 0.3em;
+  padding: 0.5em;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: outset gray 0.1em;
+}
+
+main #inputToDo:focus {
+  outline: none;
+  border: inset gray 0.1em;
+}
+
+main #lieu {
+  text-align: left;
+  position: absolute;
+  bottom: 0;
+  padding: 1em;
+}
+
+li {
+  width: 50%;
+  margin-left: 35%;
+  padding: 0.5em;
+  list-style: none;
+  text-align: left;
+}
+
+li label {
+  margin: 0 0.2em 0 0.5em;
+}
+
+li button {
+  position: absolute;
+  padding: 0.2em 0.4em;
+  font-size: 0.5em;
+  color: pink;
+  text-shadow: 0 0 0.1em red;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 0.2em;
+}
+
+li button:hover {
+  text-shadow: 0 0 0.5em red;
+}
+/*# sourceMappingURL=style.css.map */
