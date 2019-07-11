@@ -11,6 +11,15 @@ let nomStorage = localStorage.getItem('monNom');
 
 let maDate = new Date;
 let monHeure = `${maDate.getHours()} : ${maDate.getMinutes()}`;
+let currentBG = maDate.getHours();
+
+function correctifMinutes() {
+    if (maDate.getMinutes() < 10){
+        monHeure = `${maDate.getHours()} : 0${maDate.getMinutes()}`;
+    }else {
+        monHeure = `${maDate.getHours()} : ${maDate.getMinutes()}`
+    }
+}
 
 //récupération de l'api météo
 fetch(`https://api.apixu.com/v1/current.json?key=25aff8fbdd17436eb17103421192305&q=Paris&lang=fr`)
@@ -22,16 +31,37 @@ fetch(`https://api.apixu.com/v1/current.json?key=25aff8fbdd17436eb17103421192305
     monIcone.setAttribute('src', data.current.condition.icon);
 })
 
+// au chargement de la page
+window.onload = () => { 
+    monNom.value = nomStorage;
+    monContenu.style.backgroundImage = `url(./images/${maDate.getHours()}.jpg)`;
+    correctifMinutes();
+    monTitre.innerHTML = monHeure;
+} 
+
+// local storage du nom
+monNom.addEventListener('change', () => {
+    localStorage.setItem('monNom', monNom.value);
+    nomStorage = localStorage.getItem('monNom');
+    monNom.value = nomStorage;
+    console.log(nomStorage);
+})
 //Fonction temps réel
 setInterval(() => {
     maDate = new Date;
-    monHeure = maDate.getHours() + "<span> : </span>" + maDate.getMinutes();
+    correctifMinutes();
 
     // Affichage de l'heure
     monTitre.innerHTML = monHeure;
 
     //Image en fonction de l'heure
-    monContenu.style.backgroundImage = `url(./images/${maDate.getHours()}.jpg)`;
+    if (currentBG == maDate.getHours()){
+        console.log('pas de changement de bg');
+    }else {
+        monContenu.style.backgroundImage = `url(./images/${maDate.getHours()}.jpg)`;
+        currentBG = maDate.getHours();
+        console.log('changement de bg');
+    }
     console.log(maDate.getHours());
     console.log(monContenu);
 
@@ -63,21 +93,6 @@ function insertQuote(monJson) {
 
 fetchQuote();
 
-// récupération du nom
-window.onload = () => { 
-    monNom.value = nomStorage;
-    monContenu.style.backgroundImage = `url(./images/${maDate.getHours()}.jpg)`;
-    monTitre.innerHTML = monHeure;
-} 
-
-// local storage du nom
-monNom.addEventListener('change', () => {
-    localStorage.setItem('monNom', monNom.value);
-    nomStorage = localStorage.getItem('monNom');
-    monNom.value = nomStorage;
-    console.log(nomStorage);
-})
-
 //TaskList
 monInput.addEventListener('change', () => {
     let newTask = document.createElement('li');
@@ -88,7 +103,7 @@ monInput.addEventListener('change', () => {
     mesToDo.appendChild(newTask); //Nouvelle Li
     newTask.appendChild(btnTask); //Ajout du label
     newTask.appendChild(innerTask); //Ajout de la checkbox
-    newTask.appendChild(deleteBtn); //Ajout du X
+    newTask.appendChild(deleteBtn); //Ajout du bouton Supprimer
 
     deleteBtn.innerHTML = "X"; // Contenu bouton Supprimer
     

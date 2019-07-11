@@ -84,6 +84,7 @@ main {
     }
     #inputToDo {
         border-radius: 0.3em;
+        margin-bottom: 1em;
         padding: 0.5em;
         background-color: rgba(white, 0.25);
         border: outset gray 0.1em;
@@ -93,36 +94,39 @@ main {
             border: inset gray 0.1em;
         }
     }
+    #maToDoList {
+        padding-left: 35%;
+
+        li {
+            padding: 0.5em;
+            list-style: none;
+            text-align: left;
+        
+            label {
+                margin: 0 0.2em 0 0.5em;
+            }
+        
+            button {
+                position: absolute;
+                padding: 0.2em 0.4em;
+                font-size: 0.5em;
+                color: pink;
+                text-shadow: 0 0 0.1em red;
+                background: rgba(black, 0.5);
+                border: none;
+                border-radius: 0.2em;
+        
+                &:hover {
+                    text-shadow: 0 0 0.5em red;
+                }
+            }
+        }
+    }    
     #lieu {
         text-align: left;
-        position: absolute;
+        position: fixed;
         bottom: 0;
         padding: 1em;
     }
 }
-li {
-    width: 50%;
-    margin-left: 35%;
-    padding: 0.5em;
-    list-style: none;
-    text-align: left;
 
-    label {
-        margin: 0 0.2em 0 0.5em;
-    }
-
-    button {
-        position: absolute;
-        padding: 0.2em 0.4em;
-        font-size: 0.5em;
-        color: pink;
-        text-shadow: 0 0 0.1em red;
-        background: rgba(black, 0.5);
-        border: none;
-        border-radius: 0.2em;
-
-        &:hover {
-            text-shadow: 0 0 0.5em red;
-        }
-    }
-}

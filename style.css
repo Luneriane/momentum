@@ -93,6 +93,7 @@ main h2 #nom:focus {
 
 main #inputToDo {
   border-radius: 0.3em;
+  margin-bottom: 1em;
   padding: 0.5em;
   background-color: rgba(255, 255, 255, 0.25);
   border: outset gray 0.1em;
@@ -103,26 +104,21 @@ main #inputToDo:focus {
   border: inset gray 0.1em;
 }
 
-main #lieu {
-  text-align: left;
-  position: absolute;
-  bottom: 0;
-  padding: 1em;
+main #maToDoList {
+  padding-left: 35%;
 }
 
-li {
-  width: 50%;
-  margin-left: 35%;
+main #maToDoList li {
   padding: 0.5em;
   list-style: none;
   text-align: left;
 }
 
-li label {
+main #maToDoList li label {
   margin: 0 0.2em 0 0.5em;
 }
 
-li button {
+main #maToDoList li button {
   position: absolute;
   padding: 0.2em 0.4em;
   font-size: 0.5em;
@@ -133,7 +129,14 @@ li button {
   border-radius: 0.2em;
 }
 
-li button:hover {
+main #maToDoList li button:hover {
   text-shadow: 0 0 0.5em red;
+}
+
+main #lieu {
+  text-align: left;
+  position: fixed;
+  bottom: 0;
+  padding: 1em;
 }
 /*# sourceMappingURL=style.css.map */
